@@ -43,6 +43,11 @@ public class Monople<T> implements Tuple<Monople<T>> {
   }
 
   @Override
+  public String toString() {
+    return "(" + first + ')';
+  }
+
+  @Override
   public int size() {
     return 1;
   }

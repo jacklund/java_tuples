@@ -56,4 +56,9 @@ public class Duple<T, U> implements Tuple<Duple<T, U>> {
   public int size() {
     return 2;
   }
+
+  @Override
+  public String toString() {
+    return "(" + first + ", " + second + ')';
+  }
 }

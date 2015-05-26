@@ -61,6 +61,11 @@ public class Triple<T, U, V> implements Tuple<Triple<T, U, V>> {
   }
 
   @Override
+  public String toString() {
+    return "(" + first + ", " + second + ", " + third + ')';
+  }
+
+  @Override
   public int size() {
     return 3;
   }
