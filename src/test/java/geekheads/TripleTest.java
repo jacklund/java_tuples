@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.Test;
 
@@ -19,8 +20,8 @@ public class TripleTest {
     Triple<Integer, String, Double> mono = Tuple.of(1, "foo", 3.14);
     Object[] values = Arrays.stream(new int[]{0, 1, 2})
       .mapToObj(mono)
-      .filter(opt -> opt.isPresent())
-      .map(opt -> opt.get())
+      .filter(Optional::isPresent)
+      .map(Optional::get)
       .toArray();
     assertEquals(3, values.length);
     assertEquals(1, values[0]);

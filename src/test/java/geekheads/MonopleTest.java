@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.Test;
 
@@ -19,8 +20,8 @@ public class MonopleTest {
     Monople<Integer> mono = Tuple.of(1);
     Object[] values = Arrays.stream(new int[]{0})
       .mapToObj(mono)
-      .filter(opt -> opt.isPresent())
-      .map(opt -> opt.get())
+      .filter(Optional::isPresent)
+      .map(Optional::get)
       .toArray();
     assertEquals(1, values.length);
     assertEquals(1, values[0]);

@@ -29,7 +29,8 @@ public interface Tuple<T extends Tuple> extends IntFunction<Optional<Object>>, C
     for (int i = 0; i < size(); i++) {
       @SuppressWarnings("unchecked")
       Comparable<Object> l = (Comparable<Object>) apply(i).get();
-      Object r = o.apply(i);
+      @SuppressWarnings("unchecked")
+      Object r = ((Optional<Object>) o.apply(i)).get();
       int c = l.compareTo(r);
       if (c != 0) {
         return c;
