@@ -19,18 +19,7 @@ creates a 3-tuple (a "Triple") containing a float, an `ArrayList`, and a String.
 Tuples are immutable (well, as immutable as you can get in Java). You can access the first element
 of the tuple as `tuple.first`, the second as `tuple.second`, and so on. I've only implemented up to 3-tuples.
 
-Also, there is a 1-tuple (a "Monople") implementation. Why, you may ask? It's actually quite useful
-for closures where you need to be able to modify one of the closed-over values, for instance:
-
-```java
-final Monople<Boolean> found = Tuple.of(false);
-Optional.of(someObject).flatMap(obj -> {
-  found.first = true;
-  return Optional.of(obj);
-});
-```
-
-(I know, a contrived example, but you get the idea).
+Also, there is a 1-tuple (a "Monople") implementation.
 
 I've broken from Alex's implementation in that I do not have mine implement either `Serializable` or
 `Cloneable`, the first because it seems superfluous, and the second because cloning one is really just a matter
