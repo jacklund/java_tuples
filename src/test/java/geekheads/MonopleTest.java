@@ -19,6 +19,8 @@ public class MonopleTest {
     Monople<Integer> mono = Tuple.of(1);
     Object[] values = Arrays.stream(new int[]{0})
       .mapToObj(mono)
+      .filter(opt -> opt.isPresent())
+      .map(opt -> opt.get())
       .toArray();
     assertEquals(1, values.length);
     assertEquals(1, values[0]);

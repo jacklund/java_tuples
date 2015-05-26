@@ -17,8 +17,10 @@ public class DupleTest {
   @Test
   public void testAsFunction() {
     Duple<Integer, String> mono = Tuple.of(1, "foo");
-    Object[] values = Arrays.stream(new int[]{0, 1})
+    Object[] values = Arrays.stream(new int[]{0, 1, 2})
       .mapToObj(mono)
+      .filter(opt -> opt.isPresent())
+      .map(opt -> opt.get())
       .toArray();
     assertEquals(2, values.length);
     assertEquals(1, values[0]);
