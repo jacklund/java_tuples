@@ -1,5 +1,7 @@
 package geekheads.tuples;
 
+import java.util.Optional;
+
 public class Monople<T> implements Tuple<Monople<T>> {
   public final T first;
 
@@ -31,12 +33,12 @@ public class Monople<T> implements Tuple<Monople<T>> {
   }
 
   @Override
-  public Object apply(int value) {
+  public Optional<Object> apply(int value) {
     switch (value) {
       case 0:
-        return this.first;
+        return Optional.of(this.first);
       default:
-        throw new IndexOutOfBoundsException();
+        return Optional.empty();
     }
   }
 

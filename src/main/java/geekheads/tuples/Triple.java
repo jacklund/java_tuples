@@ -1,5 +1,7 @@
 package geekheads.tuples;
 
+import java.util.Optional;
+
 public class Triple<T, U, V> implements Tuple<Triple<T, U, V>> {
   public final T first;
   public final U second;
@@ -45,16 +47,16 @@ public class Triple<T, U, V> implements Tuple<Triple<T, U, V>> {
   }
 
   @Override
-  public Object apply(int value) {
+  public Optional<Object> apply(int value) {
     switch (value) {
       case 0:
-        return first;
+        return Optional.of(first);
       case 1:
-        return second;
+        return Optional.of(second);
       case 2:
-        return third;
+        return Optional.of(third);
       default:
-        throw new IndexOutOfBoundsException();
+        return Optional.empty();
     }
   }
 

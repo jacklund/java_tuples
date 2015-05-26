@@ -45,3 +45,8 @@ Mostly, I'm trying to avoid the Java trap of adding interfaces just because.
 
 I've implemented `IntFunction` because Tuples _should_ be functions, and `Comparable` so that they can
 be valid members of ordered collections.
+
+As functions, tuples take an integer, which is the index into the tuple, and return an `Optional<Object>`,
+which contains either the object at that index, if the index is in range, or empty if not.
+
+As a `Comparable`, the tuples are ordered on their first entry, followed by their second, etc.

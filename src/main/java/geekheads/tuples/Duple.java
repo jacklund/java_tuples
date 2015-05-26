@@ -1,5 +1,7 @@
 package geekheads.tuples;
 
+import java.util.Optional;
+
 public class Duple<T, U> implements Tuple<Duple<T, U>> {
   public final T first;
   public final U second;
@@ -39,14 +41,14 @@ public class Duple<T, U> implements Tuple<Duple<T, U>> {
   }
 
   @Override
-  public Object apply(int value) {
+  public Optional<Object> apply(int value) {
     switch (value) {
       case 0:
-        return first;
+        return Optional.of(first);
       case 1:
-        return second;
+        return Optional.of(second);
       default:
-        throw new IndexOutOfBoundsException();
+        return Optional.empty();
     }
   }
 

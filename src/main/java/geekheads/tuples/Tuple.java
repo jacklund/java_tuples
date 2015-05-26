@@ -1,9 +1,10 @@
 package geekheads.tuples;
 
 import java.util.Objects;
+import java.util.Optional;
 import java.util.function.IntFunction;
 
-public interface Tuple<T extends Tuple> extends IntFunction, Comparable<T> {
+public interface Tuple<T extends Tuple> extends IntFunction<Optional<Object>>, Comparable<T> {
   public static <U> Monople<U> of(U u) {
     return Monople.of(u);
   }
@@ -27,7 +28,7 @@ public interface Tuple<T extends Tuple> extends IntFunction, Comparable<T> {
 
     for (int i = 0; i < size(); i++) {
       @SuppressWarnings("unchecked")
-      Comparable<Object> l = (Comparable<Object>) apply(i);
+      Comparable<Object> l = (Comparable<Object>) apply(i).get();
       Object r = o.apply(i);
       int c = l.compareTo(r);
       if (c != 0) {
